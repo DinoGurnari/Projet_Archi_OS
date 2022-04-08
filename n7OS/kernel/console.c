@@ -2,8 +2,8 @@
 #include <n7OS/cpu.h>
 
 __UINT16_TYPE__ *scr_tab = (__UINT16_TYPE__ *) 0xB8000;
-int currentPos;
 __UINT8_TYPE__ style = 0xF;
+int currentPos;
 
 void console_putcursor(int position) {
     // On récupère la position et on la coupe en deux;
