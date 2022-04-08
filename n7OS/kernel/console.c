@@ -1,5 +1,6 @@
 #include <n7OS/console.h>
 #include <n7OS/cpu.h>
+#define SIZETAB 1999
 
 __UINT16_TYPE__ *scr_tab = (__UINT16_TYPE__ *) 0xB8000;
 __UINT8_TYPE__ style = 0xF;
@@ -34,7 +35,7 @@ void console_putchar(const char c) {
     } else if (c == '\t') {
         // Si c'est un tab (HT) de 4 espaces
         for (int i = 0; i < 4; i++) {
-            scr_tab[currentPos] = ' ';
+            scr_tab[currentPos] = 0x00;
             currentPos++;
         }
     
@@ -50,8 +51,8 @@ void console_putchar(const char c) {
 
     } else if (c == '\f') {
         // Si c'est une suppression et retour en (0;0) (FF)
-        for (int i = (80*24) + 79; i >= 0; i--) {
-            scr_tab[i] =' ';
+        for (int i = SIZETAB; i >= 0; i--) {
+            scr_tab[i] = 0x00;
         }
         currentPos = 0;
         console_putcursor(currentPos);
@@ -69,8 +70,23 @@ void console_putchar(const char c) {
     
 }
 
+// Permet de décaler les lignes vers le haut d'une ligne et nettoie la dernière
+void slideUp() {
+    for (int i = 0; i < SIZETAB - 80; i++) {
+        scr_tab[i] = scr_tab[i+80];
+    }
+    for (int j = SIZETAB - 80; j < SIZETAB; j++) {
+        scr_tab[j]= 0x00;
+    }
+    currentPos = SIZETAB - 79;
+}
+
 void console_putbytes(const char *s, int len) {
     for (int i = 0; i < len; i++) {
+        // On regarde s'il y a un dépassement de ligne
+        if (currentPos >= SIZETAB) {
+            slideUp();
+        }
         console_putchar(s[i]);
     }
     
