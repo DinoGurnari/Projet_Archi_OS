@@ -79,6 +79,7 @@ void slideUp() {
         scr_tab[j]= 0x00;
     }
     currentPos = SIZETAB - 79;
+    console_putcursor(currentPos);
 }
 
 void console_putbytes(const char *s, int len) {

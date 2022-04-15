@@ -9,17 +9,17 @@ void kernel_start(void)
     
     // on ne doit jamais sortir de kernel_start
     while (1) {
-        /* printf("Hello World!\n");
+        printf("\f");
+        printf("Hello World!\n");
         printf("\tBonjour");
         printf("\bR");
         printf("\n");
         printf("Buongiorno\r");
         printf("Ciao");
-        printf("\f"); */
-        for (int i = 0; i < 30; i++) {;
+        /* for (int i = 0; i < 30; i++) {;
             printf("%u\n",i);
         }
-        
+        printf("Fin\n"); */
         hlt();
     }
 }
