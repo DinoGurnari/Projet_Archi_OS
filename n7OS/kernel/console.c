@@ -38,7 +38,6 @@ void console_putchar(const char c) {
             scr_tab[currentPos] = 0x00;
             currentPos++;
         }
-    
         // On bouge le curseur
         console_putcursor(currentPos);
 
@@ -90,7 +89,6 @@ void console_putbytes(const char *s, int len) {
         }
         console_putchar(s[i]);
     }
-    
 }
 
 void setStyle(__UINT8_TYPE__ newStyle) {
