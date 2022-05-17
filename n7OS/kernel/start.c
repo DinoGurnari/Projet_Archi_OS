@@ -4,6 +4,7 @@
 #include <n7OS/irq.h>
 #include <stdio.h>
 
+extern void init_irq();
 
 void kernel_start(void)
 {
@@ -23,9 +24,9 @@ void kernel_start(void)
         printf("Fin\n"); */
 
         printf("\f");
-        init_irq_entry(50, (uint32_t) );
+        init_irq();
         sti();
-        __asm__("int $50::");
+        __asm__("int $50"::);
 
         hlt();
     }
