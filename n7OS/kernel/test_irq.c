@@ -10,5 +10,5 @@ void init_irq() {
 }
 
 void handler_en_C() {
-    printf("YESSSSSSSSSSSSSSSSSSSSSSSSSS\n");
+    printf("INT 50\n");
 }

@@ -1,5 +1,6 @@
 #include <n7OS/console.h>
 #include <n7OS/cpu.h>
+#include <stdio.h>
 #define SIZETAB 1999
 
 __UINT16_TYPE__ *scr_tab = (__UINT16_TYPE__ *) 0xB8000;
@@ -17,6 +18,23 @@ void console_putcursor(int position) {
     // Envoie des bits de poids forts
     outb(0xE, 0x3D4);
     outb(posCursor8[1], 0x3D5);
+}
+
+void setCursor(int position) {
+    currentPos = position;
+    console_putcursor(position);
+}
+
+void update_timer(int* tps){
+    int buffer = currentPos;
+
+    currentPos = 72;
+    console_putcursor(72);
+
+    printf("%2d:%2d:%2d", tps[0], tps[1], tps[2]);
+    
+    currentPos = buffer;
+    console_putcursor(buffer);
 }
 
 void console_putchar(const char c) {

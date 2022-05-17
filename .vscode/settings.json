@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "unistd.h": "c",
+        "irq.h": "c",
+        "sys.h": "c",
+        "time.h": "c",
+        "string": "c"
+    }
+}

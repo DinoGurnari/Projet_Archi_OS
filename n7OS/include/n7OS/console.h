@@ -7,4 +7,6 @@
  */
 void console_putbytes(const char *s, int len);
 
+void update_timer(int* tps);
+
 #endif
