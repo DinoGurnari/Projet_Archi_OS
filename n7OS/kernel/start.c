@@ -33,7 +33,7 @@ void kernel_start(void)
         printf("Fin\n"); */
 
         printf("\f");
-        
+        //printf("DinOS!");
         // Envoie interruption 50
         //__asm__("int $50"::);
         
