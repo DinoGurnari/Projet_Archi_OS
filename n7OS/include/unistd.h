@@ -53,4 +53,6 @@ int example();
 
 int shutdown(int n);
 
+int write(const char *s, int len);
+
 #endif
