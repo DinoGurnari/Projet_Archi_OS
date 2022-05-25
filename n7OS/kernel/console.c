@@ -31,7 +31,7 @@ void update_timer(int* tps){
     currentPos = 72;
     console_putcursor(72);
 
-    printf("%2d:%2d:%2d", tps[0], tps[1], tps[2]); //CHANGER TO PUTCHAR
+    printf("%02d:%02d:%02d", tps[0], tps[1], tps[2]); //CHANGER TO PUTCHAR
     
     currentPos = buffer;
     console_putcursor(buffer);

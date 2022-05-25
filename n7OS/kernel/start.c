@@ -11,14 +11,14 @@ extern void init_irq();
 
 void kernel_start(void)
 {
+    // Init
+    init_irq();
+    init_syscall();
+    init_timer();
+    sti();
     
     // on ne doit jamais sortir de kernel_start
     while (1) {
-        // Init
-        init_irq();
-        init_syscall();
-        init_timer();
-        sti();
 
 /*         printf("\f");
         printf("Hello World!\n");
