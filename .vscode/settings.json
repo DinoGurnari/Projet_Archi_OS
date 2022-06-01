@@ -4,6 +4,7 @@
         "irq.h": "c",
         "sys.h": "c",
         "time.h": "c",
-        "string": "c"
+        "string": "c",
+        "processus.h": "c"
     }
 }

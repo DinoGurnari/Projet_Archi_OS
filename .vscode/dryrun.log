@@ -1,4 +1,4 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/dgurnari/Annee_2/Archi OS/Projet'
 make: Leaving directory '/home/dgurnari/Annee_2/Archi OS/Projet'
  
