@@ -17,6 +17,7 @@ typedef struct {
     pid_t pid;
     etatProcessus etat;
     //int8_t priorite;
+    //ctx?
     __UINT32_TYPE__ pile[STACK_SIZE];
     int sommet;
 } processus_t;
@@ -35,6 +36,8 @@ typedef void* (*fnptr)();
 tableProcessus_t tableProcessus;// Table des processus
 int cpt_p;                  // Compteur de processus courant
 int cpt_pid;                // Compteur pour attribution des pid
+
+extern void ctx_sw();
 
 // Premier processus
 void init_processus();

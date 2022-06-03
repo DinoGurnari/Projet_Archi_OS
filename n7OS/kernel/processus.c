@@ -1,6 +1,4 @@
 #include <n7OS/processus.h>
-#include <stdlib.h>
-#include <stddef.h>
 #include <malloc.h>
 
 // Ajouter un processus à la table
