@@ -1,6 +1,8 @@
 #include <n7OS/processus.h>
 #include <malloc.h>
 
+// J'ai du commenter les réferences à malloc et free car le compilateur ne les trouvait pas 
+
 // Ajouter un processus à la table
 void ajoutTable(processus_t process) {
     elementTableP* p = tableProcessus;
@@ -9,11 +11,11 @@ void ajoutTable(processus_t process) {
         p = p->prochain;
     }
 
-    elementTableP* newE = malloc(sizeof(elementTableP));
+    /* elementTableP* newE = malloc(sizeof(elementTableP));
     newE->processus = process;
     newE->prochain = NULL;
 
-    p->prochain = newE;
+    p->prochain = newE; */
 }
 
 // Retirer un processus
@@ -24,7 +26,7 @@ int retirerTable(pid_t pid) {
         return -1;
     // Si 1 élément
     } else if (tableProcessus->prochain == NULL && pid == 0) {
-        free(tableProcessus);
+        //free(tableProcessus);
 
         return 0;
     }
@@ -38,7 +40,7 @@ int retirerTable(pid_t pid) {
         // tmpr correspond au pointeur d'avant
         if (tmp->processus.pid == pid) {
             tmpr->prochain = tmp->prochain;
-            free(tmp);
+            //free(tmp);
             return pid;
         }
     }
